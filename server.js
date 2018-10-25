@@ -1,12 +1,15 @@
 const express=require('express');
 
 const app=express();
+
 app.use(express.static(__dirname+'/public'))
+
+const port=process.env.PORT || 3000;
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname+'public/index.html');
 });
 
-app.listen(3000,()=>{
-    console.log('listening at localhost:3000');
+app.listen(port,()=>{
+    console.log(`listening at localhost:${port}`);
 });
